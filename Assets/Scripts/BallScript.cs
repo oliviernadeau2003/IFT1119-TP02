@@ -17,17 +17,23 @@ public class BallScript : MonoBehaviour
     int Initial_Score = 10;
     int Current_Score;
 
-    void Start()
+    public GameObject GameMenu;
+    public GameObject Current_Game;
+
+    void Awake()
     {
         Ball = this.gameObject.transform;
         Rb_Ball = Ball.GetComponent<Rigidbody2D>();
 
         audioSource = Ball.GetComponent<AudioSource>();
+    }
 
+    private void OnEnable()
+    {
         Current_Score = Initial_Score;
         TMP_Score.text = Current_Score.ToString();
 
-        // Impulstion de début de jeu
+        // Pulse on game start
         Rb_Ball.AddForce(Vector2.one * speed, ForceMode2D.Impulse);
     }
 
@@ -44,6 +50,16 @@ public class BallScript : MonoBehaviour
             // Score
             Current_Score--;
             TMP_Score.text = Current_Score.ToString();
+
+            // Ball speed + 10%
+            speed *= 1.10f;
+
+            // On game over
+            if (Current_Score == 0)
+            {
+                GameMenu.SetActive(true);
+                Current_Game.SetActive(false);
+            }
         }
     }
 
