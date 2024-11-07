@@ -26,6 +26,7 @@ public class BallScript : MonoBehaviour
         Rb_Ball = Ball.GetComponent<Rigidbody2D>();
 
         audioSource = Ball.GetComponent<AudioSource>();
+
     }
 
     private void OnEnable()
@@ -33,8 +34,12 @@ public class BallScript : MonoBehaviour
         Current_Score = Initial_Score;
         TMP_Score.text = Current_Score.ToString();
 
+        // Reset speed
+        speed = 10f;
+
         // Pulse on game start
         Rb_Ball.AddForce(Vector2.one * speed, ForceMode2D.Impulse);
+
     }
 
     void Update()
