@@ -20,7 +20,7 @@ public class PaddleScript : MonoBehaviour
     {
         Vector3 Position = Paddle.position;
 
-        Position.y += speed * Time.deltaTime * Input.GetAxis("Vertical");
+        Position.y += speed * Time.deltaTime * Input.GetAxis("Vertical A");
 
         Position.y = Mathf.Min(Position.y, Limit);
         Position.y = Mathf.Max(Position.y, -Limit);

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BallScript : MonoBehaviour
+public class BallScriptSolo : MonoBehaviour
 {
     Transform Ball;
     Rigidbody2D Rb_Ball;
