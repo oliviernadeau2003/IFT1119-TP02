@@ -9,6 +9,7 @@ public class BallScriptSolo : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public AudioClip lostPoint_AudioClip;
 
     float speed = 10f;
     float goalPosition = 10f;
@@ -55,6 +56,7 @@ public class BallScriptSolo : MonoBehaviour
             // Score
             Current_Score--;
             TMP_Score.text = Current_Score.ToString();
+            audioSource.PlayOneShot(lostPoint_AudioClip);
 
             // Ball speed + 10%
             speed *= 1.10f;

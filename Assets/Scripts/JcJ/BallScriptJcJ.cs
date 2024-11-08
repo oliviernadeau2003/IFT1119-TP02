@@ -9,6 +9,7 @@ public class BallScriptJcJ : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public AudioClip lostPoint_AudioClip;
 
     float speed = 10f;
     float goalPositionA = -10f;
@@ -60,6 +61,7 @@ public class BallScriptJcJ : MonoBehaviour
             // Score
             PlayerB_Score++;
             TMP_Score.text = PlayerA_Score.ToString() + ":" + PlayerB_Score.ToString();
+            audioSource.PlayOneShot(lostPoint_AudioClip);
 
             // Ball speed + 10%
             speed *= 1.10f;
@@ -83,6 +85,7 @@ public class BallScriptJcJ : MonoBehaviour
             // Score
             PlayerA_Score++;
             TMP_Score.text = PlayerA_Score.ToString() + ":" + PlayerB_Score.ToString();
+            audioSource.PlayOneShot(lostPoint_AudioClip);
 
             // Ball speed + 10%
             speed *= 1.10f;
